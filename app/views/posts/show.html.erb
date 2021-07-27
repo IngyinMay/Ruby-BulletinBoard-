@@ -1,0 +1,12 @@
+<div class="card-content clearfix">
+  <h2 class="form-title"><%= @post.title %><% if @post.public_flag == true %> &nbsp;<i class="icon-flag"></i> <% end %></h2>
+  <p class="post-desc"><%= @post.description %></p>
+  <% if logged_in? && (current_user.super_user_flag || current_user.id == @post.created_by) %>
+    <div class="right-btn-group">
+      <%= link_to "Edit", edit_post_path(@post), class: "btn edit-btn" %>
+      <%= link_to "Delete", post_path(@post),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: "btn edit-btn" %>
+    </div>
+  <% end %>
+</div>

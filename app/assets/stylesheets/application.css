@@ -1,0 +1,454 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .content {
+    width: 1000px;
+    margin: auto;
+    padding: 20px 30px 80px 30px;
+}
+
+.breadcrumbs {
+    width: 1000px;
+    margin: auto;
+    padding: 10px 50px;
+}
+
+.container {
+    max-width: none !important;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.post-list-container {
+    background: none !important;
+}
+
+
+
+/* post index */
+.add-btn-large:hover, .add-btn-large:focus {
+    text-decoration: none;
+    background-color: #52a9ac;
+    color: #fff;
+}
+
+.btn {
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 33px;
+    padding: 1px 23px 2px 23px;
+    text-decoration: none;
+    vertical-align: text-top;
+    position: relative;
+    border: none;
+}
+
+.add-btn-large, .edit-btn, .create-btn, .upload-btn {
+    background-color: #52a9ac;
+    margin-left: 10px;
+}
+
+.cancel-btn {
+    background-color: #646161bf;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.delete-btn {
+    background-color: #d94444;
+    color: #fff;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.add-btn-large {
+    padding: 1px 37px 2px 23px;
+}
+
+.upload-btn {
+    padding: 1px 20px 2px 23px;
+}
+
+.edit-btn {
+    padding: 1px 15px;
+    border-radius: 8px;
+    border: 1px solid #fff !important;
+}
+
+.create-btn {
+    padding: 1px 20px;
+    border-radius: 8px;
+    border: 1px solid #fff !important;
+}
+
+.add-btn-large::after {
+    content: "+";
+    font-size: 28px;
+    display: inline-block;
+    position: absolute;
+    top: -1px;
+    right: 16px;
+}
+
+.posts-nav {
+    display: flex;
+}
+
+.posts-nav ul {
+    display: flex;
+}
+
+.posts-nav ul li {
+    list-style-type: none;
+}
+
+.posts-nav ul .edit-btn {
+    border: none  !important;
+}
+
+.posts-nav ul li .dropdown-item:hover {
+    background-color: #52a9ac;
+}
+
+.post-type {
+    margin-left: 310px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clearfix:before {
+    display: table;
+    content: " ";
+}
+
+.post-list-wrapper {
+    margin: 0 0 20px;
+    /* border: 1px solid #52a9ac; */
+    border-radius: 1px;
+    box-shadow: 3px 3px 7px rgb(0 0 0 / 30%);
+}
+
+.post-list-wrapper .card-header {
+    padding: 10px;
+    background-color: #52a9ac;
+    display: block;
+}
+
+
+.post-list-wrapper .card-header h5 {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.post-list-wrapper .card-header h5 .icon-flag {
+    margin-top: 5px;
+}
+
+.post-list-wrapper .card-header .last-modified-date {
+    color: #fff;
+    font-size: 12px;
+}
+
+
+.post-list-wrapper .card-body {
+    background-color: #fff;
+    padding: 10px;    
+    display: inline-block;
+    width: 100%;
+    word-break: break-all;
+}
+
+.post-list-wrapper .card-body p {
+    text-indent: 80px;
+}
+
+/* form */
+.main-form {
+    margin-top: 20px;
+}
+
+.form-title {
+    color: #52a9ac;
+}
+
+.user-form-title {
+    color: #52a9ac;
+    padding-left: 1.25rem;
+}
+.form-control {
+    height: 44px;
+    background-color: #ffffff;
+    padding: 6px 12px;
+}
+
+.right-btn-group {
+    float: right;
+}
+
+.submit-btn-div {
+    text-align: right;
+}
+
+.right-btn-group .edit-btn {
+    margin-left: 10px;
+}
+
+.submit-btn-div {
+    width: 100%;
+    display: inline-block;
+}
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+}
+
+.btn-primary-reverse {
+    background-color: #ffffff !important;
+    color: #52a9ac !important;
+    border: 1px solid #52a9ac !important;
+    box-shadow: none;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 1px 10px;
+}
+
+/* post show */
+.card-content {
+    background: #ffffff;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    padding: 20px;
+    margin: 0;
+}
+
+.card-content p {
+    text-indent: 50px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.public-flag-text {
+    color: #7cd0d3;
+}
+
+
+
+
+/* for datatable */
+.relative {
+    position: relative;
+    overflow: auto;
+    overflow-y: hidden;
+}
+.user-search-option {
+    border-bottom: 1px solid #D6DEE5;
+    border-radius: 6px 6px 0 0;
+    padding-bottom: 18px;
+    color: #313E51;
+    font-size: 14px;
+    font-weight: 200;
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.dataTables_wrapper .user-search-left {
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.dataTables_filter, .user-search-left .form-control {
+    width: 300px !important;
+}
+
+.dataTables_filter {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    text-align: left !important;
+    float: left !important;
+}
+
+.user-search-option label {
+    margin-bottom: 0;
+    margin-right: 5px;
+    color: #313E51;
+}
+
+.dataTables_wrapper .user-search-right {
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.user-search-right .dataTables_length {
+    border-left: 1px solid #D6DEE5;
+    padding-left: 11px;
+}
+
+#table_count {
+    font-size: 14px;
+    font-weight: 200;
+    margin: 20px 0;
+}
+
+.user-list-table {
+    margin: 0;
+    padding: 0;
+    border: none;
+    /* border-collapse: separate; */
+    border-collapse: collapse;
+    word-break: keep-all;
+    white-space: nowrap;
+    width: 100% !important;
+}
+
+.user-list-table thead tr th {
+    border-radius: 0 !important;
+    /* border-right: 1px solid #bcbcbc; */
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: #D6DEE5;
+}
+
+.user-form-table thead tr th {
+    background-color: #EFF2F7;
+    color: #313E51;
+    font-size: 14px;
+    font-weight: 200;
+    border: 1px solid #D6DEE5;
+    padding: 10px 13px;
+    text-align: center;
+}
+
+.user-form-table tr {
+    cursor: pointer;
+}
+
+.user-list-table tbody tr td {
+    vertical-align: middle;
+    border: 1px solid #D6DEE5;
+}
+
+.user-form-table tbody tr:nth-child(even) td {
+    background: rgba(239,242,247,0.3);
+}
+
+.dataTables_scrollBody td {
+    padding: 6px 13px !important;
+}
+
+.user-list-option.clearfix {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.user-list-option-right {
+    display: block;
+    text-align: right;
+    margin: 5px 0;
+}
+
+#userTable_previous, #userTable_next, .user-list-option-right .previous, .user-list-option-right .next {
+    font-size:0;
+} 
+#userTable_previous:after, .user-list-option-right .previous:after {
+    content: "<";
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#userTable_previous, .user-list-option-right .previous {
+    padding-left: 5px;
+}
+
+#userTable_next, .user-list-option-right .next {
+    padding-right: 5px;
+}
+
+#userTable_next:after, .user-list-option-right .next:after {
+    content: ">";
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#userTable_paginate a, .user-list-option-right a{
+    color: #fff;
+    float: none;
+    text-align: center;
+    border-radius: 4px !important;
+    display: inline-block;
+    background-color: #52a9ac;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#userTable_paginate span a, .user-list-option-right span a {
+    padding: 0 7px;
+}
+
+.user-list-option {
+    margin: 20px 0;
+}
+
+.alert-warning {
+    width: 940px !important;
+}

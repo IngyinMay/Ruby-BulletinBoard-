@@ -1,0 +1,75 @@
+<div class="container">
+   <div class="user-list-container">
+      <h2 class="user-list-title table-count" id="table_count"></h2>
+      <div id="new_list_button_option">
+      </div>
+      <div class="user-card-content">
+        <div id="main_table">
+          <table id="userTable" class="user-form-table user-list-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Address</th>
+                <th>Birthday/定員</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each_with_index  do |user, index| %>
+                <tr data-url= <%= user_path(user) %>>
+                  <td><%= index += 1 %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.phone %></td>
+                  <td><%= user.address %></td>
+                  <td><%= user.birthday %></td>
+                  <td><%= user.super_user_flag == true ? "Super User" :  (user.role == 1 ? 'Level1 User' : 'Level2 User') %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <% if current_user.super_user_flag %>
+      <div class="right-btn-group">
+        <%= link_to "Add User", new_user_path, class: "btn add-btn-large" %>
+      </div>
+    <% end %>
+</div>
+
+<script>
+var table = $('.user-list-table').DataTable({
+    deferRender: true,
+    dom: "<" +
+    "<'user-list-option clearfix'" + "p>" +
+    "<'user-search-option'<'user-search-left'f> <'user-search-right'Rl>>" +
+    "<'user-row-count'>" +
+    "<'relative'rt>" +
+    "<'user-list-option'" + "p>" +
+    ">",
+    scrollX: true,
+    pageLength: 5,
+    lengthMenu: [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
+    drawCallback: function () {
+        $("#table_count").html("User Count&nbsp;&nbsp;<strong>" + this.api().rows({search: 'applied'}).count() + "</strong>" );
+    },
+    rowCallback: function (row, data, index) {
+        $(row).addClass('user-visitor-line');
+    },
+    stateSave: true,
+});
+// append
+$(".dataTables_paginate").removeClass().addClass("user-list-option-right");
+$(".user-list-container").append($(".user-list-option"));
+$(".user-list-container").prepend($(".user-list-option.clearfix"));
+$("#new_list_button_option").insertAfter(".user-search-option");
+$("#new_list_button_option").prepend($("#table_count"));
+
+table.on('click', 'td', function () {
+    location.href = $(this).parent().data('url');
+});
+</script>

@@ -1,0 +1,4 @@
+<div class="container">
+  <h2 class="form-title">Add User</h2>
+  <%= render "form", user: @user, url: create_user_path(@user), method: :post, back: users_path %>
+</div>

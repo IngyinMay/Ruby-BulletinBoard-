@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Bulletin Board", posts_path, class:"navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if logged_in? %>
+        <li class="nav-item">
+            <%= link_to "User List", users_path , class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Post List", posts_path , class:"nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <% if logged_in? %>
+      <ul class="navbar-nav my-sm-0">
+        <li class="nav-item">
+          <div class="dropdown show">
+            <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left:-54px;">
+              <%= link_to "Profile", profile_path , class:"dropdown-item" %>
+              <%= link_to "Log Out", logout_path , class:"dropdown-item" %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    <% else %>
+      <ul class="navbar-nav my-sm-0">
+        <li class="nav-item">
+            <%= link_to "Login", login_path , class:"nav-link" %>
+          </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
+

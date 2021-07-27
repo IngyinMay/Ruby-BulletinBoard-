@@ -1,0 +1,4 @@
+<div class="container">
+  <h2 class="form-title">Create Your Desired Post</h2>
+  <%= render "form", post: @post, url: create_post_path(@post), method: :post, back: posts_path %>
+</div>

@@ -1,0 +1,4 @@
+<div class="container">
+  <h2 class="form-title">Edit User</h2>
+  <%= render "form", user: @user, url: update_user_path(@user), method: :put, back: user_path %>
+</div>

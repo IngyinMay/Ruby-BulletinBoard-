@@ -1,0 +1,4 @@
+<div class="container">
+  <h2 class="form-title">Edit Profile</h2>
+  <%= render "form", user: @user, url: edit_profile_path(@user), method: :put, back: profile_path %>
+</div>
