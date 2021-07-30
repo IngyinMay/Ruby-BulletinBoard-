@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   add_breadcrumb "Post List", :root_path
+  before_action :authorized?
 
   # function : index
   # @return [<Type>] <posts>
@@ -32,7 +33,6 @@ class PostsController < ApplicationController
   def create
     params[:post][:created_by] ||= current_user.id
     @post = Post.new(post_params)
-    logger.info(post_params)
     @is_save_post = PostService.createPost(@post)
     if @is_save_post
       redirect_to posts_path
@@ -93,9 +93,6 @@ class PostsController < ApplicationController
   end
 
   def upload_csv
-    path = Rails.application.routes.recognize_path(request.path)
-    logger.info('zzzzzzzzzzzzzzzzzzz')
-    logger.info(path[:controller])
   end
 
   def import_csv

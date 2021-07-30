@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   add_breadcrumb "User List", :users_path
+  before_action :authorized?
+
   def index
     @users = UserService.getAllUsers
   end

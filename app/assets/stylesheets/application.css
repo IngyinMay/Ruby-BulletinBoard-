@@ -108,27 +108,17 @@
 }
 
 .posts-nav {
-    display: flex;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.posts-nav ul {
-    display: flex;
+.post-filter {
+    display: inline-block;
 }
 
-.posts-nav ul li {
-    list-style-type: none;
-}
-
-.posts-nav ul .edit-btn {
-    border: none  !important;
-}
-
-.posts-nav ul li .dropdown-item:hover {
-    background-color: #52a9ac;
-}
-
-.post-type {
-    margin-left: 310px;
+.posts-nav .btn {
+    float: right;
 }
 
 .clearfix {
@@ -195,8 +185,8 @@
     color: #52a9ac;
     padding-left: 1.25rem;
 }
-.form-control {
-    height: 44px;
+.post-filter .form-control {
+    height: 40px;
     background-color: #ffffff;
     padding: 6px 12px;
 }

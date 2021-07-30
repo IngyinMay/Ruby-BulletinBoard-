@@ -1,29 +1,18 @@
 
 <div class="posts-nav">
-  <% if logged_in? %>
-    <div class="post-type">
-      <%= form_with url: filter_path, method: :get do |form| %>
-        <ul>
-          <li><%= form.label :Type, class:"col-sm-2 col-form-label" %></li>
-          <li>
-              <div style="width: 200px;">
-                  <%= form.select(:filter_by, options_for_select(Constants::POST_FILTER, @last_filter_by ? @last_filter_by : ''), {}, {:class => "form-control", onchange: 'this.form.submit()'})%>
-              </div>
-          </li>
-          <li>
-            <a class="btn dropdown-toggle edit-btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= "New Post" %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left:-54px;">
-              <%= link_to "Single Post", new_post_path, class: "dropdown-item" %>
-              <%= link_to "Upload Posts <i class=\"icon-upload-alt\"></i>".html_safe, upload_csv_path, class: "dropdown-item" %>
-              <%= link_to "Download Post CSV <i class=\"icon-upload-alt\"></i>".html_safe, download_csv_path(format: :csv), class: "dropdown-item" %>
-            </div>
-          </li>
-        </ul>
-      <% end %>
+  <%= form_with class: "post-filter", url: filter_path, method: :get do |form| %>
+    <div style="width: 200px;">
+      <%= form.select(:filter_by, options_for_select(Constants::POST_FILTER, @last_filter_by ? @last_filter_by : ''), {}, {:class => "form-control", onchange: 'this.form.submit()'})%>
     </div>
   <% end %>
+  <a class="btn dropdown-toggle edit-btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= "New Post" %>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left:-54px;">
+    <%= link_to "Single Post", new_post_path, class: "dropdown-item" %>
+    <%= link_to "Upload Posts <i class=\"icon-upload-alt\"></i>".html_safe, upload_csv_path, class: "dropdown-item" %>
+  </div>
+  <%= link_to "Download Post CSV <i class=\"icon-download-alt\"></i>".html_safe, download_csv_path(format: :csv), class: "btn edit-btn" %>
 </div>
 
 <% if @posts %>
@@ -37,7 +26,7 @@
         <p><%= truncate(post.description.html_safe, length:200) %></p>
         <div class="right-btn-group">
           <%= link_to "Show More", post_path(post), class: "btn edit-btn" %>
-          <% if logged_in? && (current_user.super_user_flag || current_user.id == post.created_by) %>
+          <% if current_user.super_user_flag || current_user.id == post.created_by %>
             <%= link_to "Delete", post_path(post),
                 method: :delete,
                 data: { confirm: "Are you sure?" }, class: "btn delete-btn" %>
@@ -49,6 +38,5 @@
 <% else %>
   <p> No Post is created.</p>
 <% end %>
-    
 
 
