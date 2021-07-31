@@ -113,7 +113,29 @@
     margin-bottom: 20px;
 }
 
-.post-filter, .posts-nav .post-count {
+.posts-nav .post-filter, .posts-nav .post-search, .posts-nav .post-count {
+    display: inline-block;
+}
+
+.posts-nav  .post-filter-div {
+    width: 200px;
+    display: inline-block;
+    background-color: #fff;
+}
+
+.posts-nav  .post-filter-div  .form-control {
+    display: inline-block;
+    width: 80%;
+    border: none;
+}
+
+.posts-nav  .post-filter-div .search-icon {
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.post-nav .post-filter-div .form-control, .post-nav .post-filter-div .search {
     display: inline-block;
 }
 

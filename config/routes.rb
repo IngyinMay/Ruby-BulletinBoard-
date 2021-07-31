@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :new_post, to: "posts#new"
       post :new_post
       get :filter
+      get :search
       get :download_csv
       get :csv_format
       get :upload_csv

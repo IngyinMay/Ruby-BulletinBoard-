@@ -46,5 +46,13 @@ class PostService
         def filter(filter_by, user_id)
             @posts = PostRepository.filter(filter_by, user_id)
         end
+
+        # function :search
+        # search post
+        # @param [<Type>] search_keyword <description>
+        # @return [<Type>] <posts>
+        def search(search_keyword)
+            @posts = PostRepository.search(search_keyword)
+        end
     end    
 end

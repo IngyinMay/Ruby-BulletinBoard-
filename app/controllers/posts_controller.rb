@@ -87,6 +87,16 @@ class PostsController < ApplicationController
     render :index
   end
 
+  # function :search
+  # search posts
+  # @return [<Type>] <posts>
+  def search
+    @search_keyword = params[:search_keyword]
+    @posts = PostService.search(@search_keyword)
+    @last_search_keyword = @search_keyword
+    render :index
+  end
+
   # function download_csv
   # download post csv
   #

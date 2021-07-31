@@ -1,11 +1,16 @@
 
 <div class="posts-nav">
+  <%= form_with class: "post-search", url: search_posts_path, method: :get do |form| %>
+    <div class="post-filter-div">
+      <%= form.text_field :search_keyword, class: "form-control", value: @last_search_keyword %>
+      <span class="search-icon"><i class="icon-search"></i></span>
+    </div>
+  <% end %>
   <%= form_with class: "post-filter", url: filter_posts_path, method: :get do |form| %>
     <div style="width: 200px;">
       <%= form.select(:filter_by, options_for_select(Constants::POST_FILTER, @last_filter_by ? @last_filter_by : ''), {}, {:class => "form-control", onchange: 'this.form.submit()'})%>
     </div>
   <% end %>
-  
   <div class="post-count">
   Total Posts : <%= @posts.count %>
   </div>

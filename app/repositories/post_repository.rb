@@ -59,5 +59,13 @@ class PostRepository
                 @posts = Post.where.not(created_by: user_id).order("created_at DESC")
             end
         end
+
+        # function search
+        # search posts
+        # @param [<Type>] search_keyword <description>
+        # @return [<Type>] <posts>
+        def search(search_keyword)
+            @posts = Post.where("title LIKE :title or description LIKE :desc", {:title => "%#{search_keyword}%", :desc => "%#{search_keyword}%"})
+        end
     end
 end
