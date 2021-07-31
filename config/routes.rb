@@ -1,32 +1,42 @@
 Rails.application.routes.draw do
 
-  get 'user/index'
-  root "posts#index"
+  root 'login#login'
 
-  #replace using resource
-  resources :posts, only: [:index, :new, :show, :edit, :destroy]
-  post '/posts/new', to: 'posts#create', as: 'create_post'
-  put '/posts/:id/edit', to: 'posts#update', as: 'update_post'
-  get '/filter', to: 'posts#filter'
-  get '/download_csv', to: 'posts#download_csv'
-  get '/upload_csv', to: 'posts#upload_csv'
-  post '/import_csv', to: 'posts#import_csv'
+  resources :users, only: [:index, :show, :destroy] do
+    collection do
+      get :new_user, to: "users#new"
+      post :new_user
+      get :profile
+      get :edit_profile
+      put :edit_profile, to: "users#update_profile"
+      get :edit_password
+      put :edit_password, to: "users#change_password"
+    end
+    member do
+      get :edit
+      put :edit, to: 'users#update'
+    end
+  end
 
-  resources :users, only: [:index, :new, :show, :edit, :destroy]
-  post '/users/new', to: 'users#create', as: 'create_user'
-  put '/users/:id/edit', to: 'users#update', as: 'update_user'
-  get '/profile', to: 'users#profile'
-  get '/edit_profile', to: 'users#edit_profile'
-  put '/edit_profile', to: 'users#update_profile'
-  get '/password', to: 'users#edit_password'
-  put '/password', to: 'users#change_password'
+  resources :posts, only: [:index, :show, :destroy] do
+    collection do
+      get :new_post, to: "posts#new"
+      post :new_post
+      get :filter
+      get :download_csv
+      get :upload_csv
+      post :import_csv
+    end
+    member do
+      get :edit
+      put :edit, to: "posts#update"
+    end
+  end
 
   # login
   get '/login', to: 'login#login'
   post '/login', to: 'login#actionLogin'
   get '/logout', to: 'login#logout'
-
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

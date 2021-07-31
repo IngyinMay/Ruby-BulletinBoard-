@@ -1,6 +1,6 @@
 
 <div class="posts-nav">
-  <%= form_with class: "post-filter", url: filter_path, method: :get do |form| %>
+  <%= form_with class: "post-filter", url: filter_posts_path, method: :get do |form| %>
     <div style="width: 200px;">
       <%= form.select(:filter_by, options_for_select(Constants::POST_FILTER, @last_filter_by ? @last_filter_by : ''), {}, {:class => "form-control", onchange: 'this.form.submit()'})%>
     </div>
@@ -9,10 +9,10 @@
     <%= "New Post" %>
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left:-54px;">
-    <%= link_to "Single Post", new_post_path, class: "dropdown-item" %>
-    <%= link_to "Upload Posts <i class=\"icon-upload-alt\"></i>".html_safe, upload_csv_path, class: "dropdown-item" %>
+    <%= link_to "Single Post", new_post_posts_path, class: "dropdown-item" %>
+    <%= link_to "Upload Posts <i class=\"icon-upload-alt\"></i>".html_safe, upload_csv_posts_path, class: "dropdown-item" %>
   </div>
-  <%= link_to "Download Post CSV <i class=\"icon-download-alt\"></i>".html_safe, download_csv_path(format: :csv), class: "btn edit-btn" %>
+  <%= link_to "Download Post CSV <i class=\"icon-download-alt\"></i>".html_safe, download_csv_posts_path(format: :csv), class: "btn edit-btn" %>
 </div>
 
 <% if @posts %>
@@ -38,5 +38,3 @@
 <% else %>
   <p> No Post is created.</p>
 <% end %>
-
-

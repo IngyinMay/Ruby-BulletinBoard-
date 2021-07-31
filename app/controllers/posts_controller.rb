@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   # show create post
   # @return [<Type>] <post>
   def new
-    add_breadcrumb "Create Post", :new_post_path
+    add_breadcrumb "Create Post", :new_post_posts_path
     @post = Post.new
     # logger.info(@post)
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   # param : post_params
   # create post
   # @return redirect
-  def create
+  def new_post
     params[:post][:created_by] ||= current_user.id
     @post = Post.new(post_params)
     @is_save_post = PostService.createPost(@post)
@@ -75,6 +75,10 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  # function filter
+  # filter posts
+  # param : filter_by
+  # @return [<Type>] <posts>
   def filter
     @filter_by = params[:filter_by]
     @user_id = current_user.id
@@ -83,6 +87,10 @@ class PostsController < ApplicationController
     render :index
   end
 
+  # function download_csv
+  # download post csv
+  #
+  # @return [<Type>] <csv>
   def download_csv
     @posts = PostService.getAllPosts(current_user)
     @posts = @posts.reorder('id ASC')
@@ -92,18 +100,19 @@ class PostsController < ApplicationController
     end
   end
 
-  def upload_csv
-  end
 
+  # function :import_csv
+  # create and update posts by csv
+  # @return [<Type>] <redirect>
   def import_csv
     if (params[:file].nil?)
-      redirect_to upload_csv_path, notice: Messages::REQUIRE_FILE_VALIDATION
+      redirect_to upload_csv_posts_path, notice: Messages::REQUIRE_FILE_VALIDATION
     elsif !File.extname(params[:file]).eql?(".csv")
-      redirect_to upload_csv_path, notice: Messages::WRONG_FILE_TYPE
+      redirect_to upload_csv_posts_path, notice: Messages::WRONG_FILE_TYPE
     else
       error_msg = PostsHelper.check_header(Constants::POST_CSV_HEADER,params[:file])
       if error_msg.present?
-        redirect_to upload_csv_path, notice: error_msg
+        redirect_to upload_csv_posts_path, notice: error_msg
       else
           Post.import(params[:file], current_user.id)
           redirect_to posts_path, notice: Messages::UPLOAD_SUCCESSFUL

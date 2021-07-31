@@ -1,8 +1,20 @@
 class LoginController < ApplicationController
+  
+  #
+  # function : login
+  #
+  # @return [<Type>] <show login>
+  #
   def login
-
+    session.delete(:user_id)
+    @current_user = nil
   end
 
+  #
+  # function : actionLogin
+  #
+  # @return [<Type>] <action login>
+  #
   def actionLogin
     if params[:session][:email].blank? && params[:session][:password].blank?
       redirect_to login_path, notice: Messages::EMAIL_AND_PASSWORD_REQUIRE_VALIDATION
@@ -21,6 +33,11 @@ class LoginController < ApplicationController
     end
   end
 
+  #
+  # function logout
+  #
+  # @return [<Type>] <logout>
+  #
   def logout
     session.delete(:user_id)
     @current_user = nil

@@ -43,6 +43,12 @@ class PostRepository
             post.destroy
         end
 
+        # function filter
+        # filter posts
+        # @param [<Type>] filter_by <description>
+        # @param [<Type>] user_id <description>
+        # @return [<Type>] <posts>
+
         def filter(filter_by, user_id)
             case filter_by 
             when '1' 

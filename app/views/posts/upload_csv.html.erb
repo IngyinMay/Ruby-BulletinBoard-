@@ -1,7 +1,7 @@
 <div class="container">
   <h3 class="card-header">Create or Update Post by CSV</h3>
   <div class="card-body">
-<%= form_tag import_csv_path, multipart: true do |form| %>
+<%= form_tag import_csv_posts_path, multipart: true do |form| %>
   <div class="field form-group row">
     <div class="col-sm-2 col-form-label text-end"> CSV file </div>
     <div class="col-sm-5"><%= file_field_tag :file, accept: 'text/csv', class: "form-control" %></div>

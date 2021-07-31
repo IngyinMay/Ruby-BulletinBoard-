@@ -38,6 +38,11 @@ class PostService
             PostRepository.destroyPost(post)
         end
 
+        # function :filter
+        # filter posts
+        # @param [<Type>] filter_by <description>
+        # @param [<Type>] user_id <description>
+        # @return [<Type>] <posts>
         def filter(filter_by, user_id)
             @posts = PostRepository.filter(filter_by, user_id)
         end
