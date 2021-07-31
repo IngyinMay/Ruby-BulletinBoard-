@@ -13,5 +13,13 @@ class ApplicationController < ActionController::Base
         redirect_to login_path unless logged_in?
     end
 
-    helper_method :current_user, :logged_in?
+    def can_create
+        return current_user.super_user_flag || current_user.role == Constants::USER_ROLES["Level1"]
+    end
+
+    def can_edit(post)
+        return current_user.super_user_flag || (post.created_by == current_user.id && current_user.role == Constants::USER_ROLES["Level1"])
+    end
+
+    helper_method :current_user, :logged_in?, :can_create, :can_edit
 end

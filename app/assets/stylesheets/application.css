@@ -113,7 +113,7 @@
     margin-bottom: 20px;
 }
 
-.post-filter {
+.post-filter, .posts-nav .post-count {
     display: inline-block;
 }
 

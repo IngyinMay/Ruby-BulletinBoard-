@@ -100,6 +100,13 @@ class PostsController < ApplicationController
     end
   end
 
+  # functino upload_csv
+  # show csv upload page
+  # @return [<Type>] <description>
+  def upload_csv
+    add_breadcrumb "CSV Upload", :upload_csv_posts_path
+  end
+
   # function csv_format
   # download csv format for upload
   # @return [<Type>] <description>
