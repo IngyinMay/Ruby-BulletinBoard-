@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  add_breadcrumb "Post List", :root_path
+  add_breadcrumb "Post List", :posts_path
   before_action :authorized?
 
   # function : index
@@ -100,9 +100,19 @@ class PostsController < ApplicationController
     end
   end
 
+  # function csv_format
+  # download csv format for upload
+  # @return [<Type>] <description>
+  def csv_format
+    @post = Post.new
+    respond_to do |format|
+      format.html
+      format.csv { send_data @post.csv_format,  :filename => "CSV Format.csv" }
+    end
+  end
 
   # function :import_csv
-  # create and update posts by csv
+  # create posts by csv
   # @return [<Type>] <redirect>
   def import_csv
     if (params[:file].nil?)
@@ -110,12 +120,16 @@ class PostsController < ApplicationController
     elsif !File.extname(params[:file]).eql?(".csv")
       redirect_to upload_csv_posts_path, notice: Messages::WRONG_FILE_TYPE
     else
-      error_msg = PostsHelper.check_header(Constants::POST_CSV_HEADER,params[:file])
+      error_msg = PostsHelper.check_header(Constants::POST_CSV_FORMAT_HEADER,params[:file])
       if error_msg.present?
         redirect_to upload_csv_posts_path, notice: error_msg
       else
-          Post.import(params[:file], current_user.id)
-          redirect_to posts_path, notice: Messages::UPLOAD_SUCCESSFUL
+          result = Post.import(params[:file], current_user.id)
+          if (result == true)
+            redirect_to posts_path, notice: Messages::UPLOAD_SUCCESSFUL
+          else 
+            redirect_to upload_csv_posts_path, notice: result
+          end
       end
     end
   end

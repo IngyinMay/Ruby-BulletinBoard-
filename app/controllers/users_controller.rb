@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # show user create
   # @return [<Type>] <description>
   def new
-    add_breadcrumb "Create User", :new_user_path
+    add_breadcrumb "Create User", :new_user_users_path
     @user = User.new
   end
 

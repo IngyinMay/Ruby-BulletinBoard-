@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       post :new_post
       get :filter
       get :download_csv
+      get :csv_format
       get :upload_csv
       post :import_csv
     end
