@@ -19,11 +19,11 @@ Things you may want to cover:
     run rails db:migrate
     run rails db:seed
     login  the system using
-        email: "superuser1@gmail.com",
-        password: "superuser1@gmail.com1",
-        or
-        email: "user1@gmail.com",
-        password: "user1@gmail.com1",
+    email: "superuser1@gmail.com",
+    password: "superuser1@gmail.com1",
+    or
+    email: "user1@gmail.com",
+    password: "user1@gmail.com1",
 
 * How to run the test suite
 
