@@ -1,4 +1,5 @@
 <div class="card-content clearfix">
+ <%= @post.inspect %>
   <h2 class="form-title"><%= @post.title %><% if @post.public_flag == true %> &nbsp;<i class="icon-flag"></i> <% end %></h2>
   <p class="post-desc"><%= @post.description %></p>
   <% if can_edit(@post) %>

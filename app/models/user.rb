@@ -5,7 +5,7 @@ class User < ApplicationRecord
                         format: { with: Constants::VALID_EMAIL_REGEX  },
                         uniqueness: { case_sensitive: false }
     validates :password, confirmation: true, presence: true,on: :create
-    validates :phone, numericality: true, length: { minimum: 10, maximum: 15 }, allow_blank: true
+    validates :phone, numericality: true, length: { minimum: 9, maximum: 12 }, allow_blank: true
     validates :address, length: {maximum: 255}, allow_blank: true
     validates_inclusion_of :super_user_flag, :in => [true, false]
     validates :birthday, format: { with: Constants::VALID_DATE_FORMAT }, allow_blank: true

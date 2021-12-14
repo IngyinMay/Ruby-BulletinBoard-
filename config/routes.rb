@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'login#login'
-
   resources :users, only: [:index, :show, :destroy] do
     collection do
       get :new_user, to: "users#new"

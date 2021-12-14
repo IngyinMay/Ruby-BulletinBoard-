@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .content {
+.content {
     width: 1000px;
     margin: auto;
     padding: 20px 30px 80px 30px;
@@ -39,9 +39,10 @@
 }
 
 
-
 /* post index */
-.add-btn-large:hover, .add-btn-large:focus {
+
+.add-btn-large:hover,
+.add-btn-large:focus {
     text-decoration: none;
     background-color: #52a9ac;
     color: #fff;
@@ -60,7 +61,10 @@
     border: none;
 }
 
-.add-btn-large, .edit-btn, .create-btn, .upload-btn {
+.add-btn-large,
+.edit-btn,
+.create-btn,
+.upload-btn {
     background-color: #52a9ac;
     margin-left: 10px;
 }
@@ -113,29 +117,31 @@
     margin-bottom: 20px;
 }
 
-.posts-nav .post-filter, .posts-nav .post-search, .posts-nav .post-count {
+.posts-nav .post-filter,
+.posts-nav .post-search,
+.posts-nav .post-count {
     display: inline-block;
 }
 
-.posts-nav  .post-filter-div {
+.posts-nav .post-filter-div {
     width: 200px;
     display: inline-block;
     background-color: #fff;
 }
 
-.posts-nav  .post-filter-div  .form-control {
+.posts-nav .post-filter-div .form-control {
     display: inline-block;
     width: 80%;
     border: none;
 }
 
-.posts-nav  .post-filter-div .search-icon {
+.posts-nav .post-filter-div .search-icon {
     float: right;
     padding: 10px;
     cursor: pointer;
 }
 
-.post-nav .post-filter-div .form-control, .post-nav .post-filter-div .search {
+.post-nav .post-filter-div .search {
     display: inline-block;
 }
 
@@ -165,7 +171,6 @@
     display: block;
 }
 
-
 .post-list-wrapper .card-header h5 {
     font-weight: bold;
     color: #fff;
@@ -181,10 +186,9 @@
     font-size: 12px;
 }
 
-
 .post-list-wrapper .card-body {
     background-color: #fff;
-    padding: 10px;    
+    padding: 10px;
     display: inline-block;
     width: 100%;
     word-break: break-all;
@@ -194,7 +198,9 @@
     text-indent: 80px;
 }
 
+
 /* form */
+
 .main-form {
     margin-top: 20px;
 }
@@ -207,6 +213,7 @@
     color: #52a9ac;
     padding-left: 1.25rem;
 }
+
 .post-filter .form-control {
     height: 40px;
     background-color: #ffffff;
@@ -217,9 +224,6 @@
     float: right;
 }
 
-.submit-btn-div {
-    text-align: right;
-}
 
 .right-btn-group .edit-btn {
     margin-left: 10px;
@@ -228,6 +232,7 @@
 .submit-btn-div {
     width: 100%;
     display: inline-block;
+    text-align: right;
 }
 
 .error-msg {
@@ -241,7 +246,7 @@
 }
 
 .required:after {
-    content:" *";
+    content: " *";
     color: red;
 }
 
@@ -255,7 +260,9 @@
     padding: 1px 10px;
 }
 
+
 /* post show */
+
 .card-content {
     background: #ffffff;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
@@ -268,19 +275,20 @@
     white-space: pre-wrap;
     word-break: break-word;
 }
+
 .public-flag-text {
     color: #7cd0d3;
 }
 
 
-
-
 /* for datatable */
+
 .relative {
     position: relative;
     overflow: auto;
     overflow-y: hidden;
 }
+
 .user-search-option {
     border-bottom: 1px solid #D6DEE5;
     border-radius: 6px 6px 0 0;
@@ -319,7 +327,8 @@
     align-items: center;
 }
 
-.dataTables_filter, .user-search-left .form-control {
+.dataTables_filter,
+.user-search-left .form-control {
     width: 300px !important;
 }
 
@@ -380,9 +389,6 @@
     border-width: 1px 1px 0px 1px;
     border-style: solid;
     border-color: #D6DEE5;
-}
-
-.user-form-table thead tr th {
     background-color: #EFF2F7;
     color: #313E51;
     font-size: 14px;
@@ -402,7 +408,7 @@
 }
 
 .user-form-table tbody tr:nth-child(even) td {
-    background: rgba(239,242,247,0.3);
+    background: rgba(239, 242, 247, 0.3);
 }
 
 .dataTables_scrollBody td {
@@ -413,36 +419,46 @@
     margin-top: 0px;
     margin-bottom: 10px;
 }
+
 .user-list-option-right {
     display: block;
     text-align: right;
     margin: 5px 0;
 }
 
-#userTable_previous, #userTable_next, .user-list-option-right .previous, .user-list-option-right .next {
-    font-size:0;
-} 
-#userTable_previous:after, .user-list-option-right .previous:after {
+#userTable_previous,
+#userTable_next,
+.user-list-option-right .previous,
+.user-list-option-right .next {
+    font-size: 0;
+}
+
+#userTable_previous:after,
+.user-list-option-right .previous:after {
     content: "<";
     font-size: 14px;
     margin-right: 10px;
 }
 
-#userTable_previous, .user-list-option-right .previous {
+#userTable_previous,
+.user-list-option-right .previous {
     padding-left: 5px;
 }
 
-#userTable_next, .user-list-option-right .next {
+#userTable_next,
+.user-list-option-right .next {
     padding-right: 5px;
 }
 
-#userTable_next:after, .user-list-option-right .next:after {
+#userTable_next:after,
+.user-list-option-right .next:after {
     content: ">";
     font-size: 14px;
     margin-left: 10px;
 }
 
-#userTable_paginate a, .user-list-option-right a{
+#userTable_paginate a,
+.user-list-option-right a {
     color: #fff;
     float: none;
     text-align: center;
@@ -453,7 +469,8 @@
     cursor: pointer;
 }
 
-#userTable_paginate span a, .user-list-option-right span a {
+#userTable_paginate span a,
+.user-list-option-right span a {
     padding: 0 7px;
 }
 
