@@ -22,12 +22,12 @@ class UsersController < ApplicationController
   # create user
   # @return [<Type>] <user>
   def new_user
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     @is_user_create = UserService.createUser(@user)
     if @is_user_create
-      if current_user 
+      if current_user
         redirect_to users_path
-      else 
+      else
         redirect_to login_path
       end
     else
@@ -42,6 +42,12 @@ class UsersController < ApplicationController
   def show
     add_breadcrumb "User Detail", :user_path
     @user = UserService.getUserByID(params[:id])
+    rawQuery = "Select * from users where name  LIKE '%#{param}%' "
+    param = "User A"
+    rawQuery1 = User.where("name LIKE '%#{param}%'").to_sql
+    result = ActiveRecord::Base.connection.exec_query(rawQuery1)
+    result = ActiveRecord::Base.connection.select_all(rawQuery)
+    logger.info(result.inspect)
   end
 
   # function :edit
@@ -116,7 +122,7 @@ class UsersController < ApplicationController
 
   #
   # function :edit_password
-  # show edit password 
+  # show edit password
   # @return [<Type>] <description>
   #
   def edit_password
@@ -147,8 +153,8 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
+
   # set user parameters
   # @return [<Type>] <description>
   def user_params

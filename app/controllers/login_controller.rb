@@ -16,10 +16,10 @@ class LoginController < ApplicationController
   # @return [<Type>] <action login>
   #
   def actionLogin
-    if params[:session][:email].blank? && params[:session][:password].blank?
-      redirect_to login_path, notice: Messages::EMAIL_AND_PASSWORD_REQUIRE_VALIDATION
-    elsif params[:session][:email].blank? && params[:session][:password] != nil
-      redirect_to login_path, notice: Messages::EMAIL_REQUIRE_VALIDATION
+        if params[:session][:email].blank? && params[:session][:password].blank?
+          redirect_to login_path, notice: Messages::EMAIL_AND_PASSWORD_REQUIRE_VALIDATION
+        elsif params[:session][:email].blank? && params[:session][:password] != nil
+          redirect_to login_path, notice: Messages::EMAIL_REQUIRE_VALIDATION
     elsif params[:session][:email] != nil && params[:session][:password].blank?
       redirect_to login_path, notice: Messages::PASSWORD_REQUIRE_VALIDATION
     else 
